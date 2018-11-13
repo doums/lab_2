@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme } from 'victory-native'
+import withTheme from './withTheme'
 
 class Chart extends PureComponent {
   render () {
-    const { x, y, z } = this.props
+    const { x, y, z, theme } = this.props
     const point = [
       { x: 1, y: x },
       { x: 2, y: y },
       { x: 3, y: z }
     ]
     return (
-      <View style={styles.container}>
+      <View style={[ styles.container, { backgroundColor: theme.background } ]}>
         <VictoryChart
           polar
           theme={VictoryTheme.material}
@@ -40,14 +41,13 @@ class Chart extends PureComponent {
   }
 }
 
-export default Chart
+export default withTheme(Chart)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexGrow: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   }
 })

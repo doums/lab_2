@@ -8,8 +8,12 @@ import {
   ScrollView
 } from 'react-native'
 import Button from '../components/button'
+import navigationHoc from '../components/navigationHoc'
+import { compose } from 'lodash/fp'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
-export default class Home extends Component {
+class Home extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -29,10 +33,6 @@ export default class Home extends Component {
     }
   }
 
-  static navigationOptions = {
-    title: 'Home'
-  }
-
   static async requestAndroidPermissions() {
     try {
       return await PermissionsAndroid.requestMultiple([
@@ -46,61 +46,66 @@ export default class Home extends Component {
 
   render () {
     const { ready } = this.state
+    const { theme } = this.props
     if (ready) {
       return (
         <ScrollView
-          contentContainerStyle={styles.container}
+          contentContainerStyle={[ styles.container, { backgroundColor: theme.background } ]}
         >
           {
             Platform.OS === 'android' &&
             <Button
               text='Battery'
-              onPress={() => this.props.navigation.navigate('Battery', { screenTitle: 'Battery' })}
+              onPress={() => this.props.navigation.navigate('Battery')}
             />
           }
           <Button
             text='Geolocation'
-            onPress={() => this.props.navigation.navigate('Geolocation', { screenTitle: 'Geolocation' })}
+            onPress={() => this.props.navigation.navigate('Geolocation')}
           />
           <Button
             text='Contacts'
-            onPress={() => this.props.navigation.navigate('Contact', { screenTitle: 'Contacts' })}
+            onPress={() => this.props.navigation.navigate('Contact')}
           />
           <Button
             text='Language'
-            onPress={() => this.props.navigation.navigate('Language', { screenTitle: 'Language' })}
+            onPress={() => this.props.navigation.navigate('Language')}
           />
           <Button
             text='Vibration'
-            onPress={() => this.props.navigation.navigate('Vibration', { screenTitle: 'Vibration' })}
+            onPress={() => this.props.navigation.navigate('Vibration')}
           />
           <Button
             text='Sensors'
-            onPress={() => this.props.navigation.navigate('Sensors', { screenTitle: 'Sensors' })}
+            onPress={() => this.props.navigation.navigate('Sensors')}
           />
         </ScrollView>
       )
     } else {
       return (
-        <View style={styles.container}>
-          <Text style={styles.text}>This app requires specific permissions to work properly</Text>
+        <View style={[ styles.container, { backgroundColor: theme.background } ]}>
+          <Text style={[ styles.text, { color: theme.onBackground } ]}>This app requires specific permissions to work properly</Text>
         </View>
       )
     }
   }
 }
 
+export default compose(
+  withStatusBar,
+  withTheme,
+  navigationHoc
+)(Home)
+
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     paddingTop: 10,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   },
   text: {
     fontSize: 16,
-    color: 'white',
     paddingHorizontal: 10
   }
 })

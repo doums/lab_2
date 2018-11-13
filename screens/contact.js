@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, FlatList} from 'react-native'
 import Contacts from 'react-native-contacts';
 import Spinner from '../components/spinner'
 import navigationHoc from '../components/navigationHoc'
+import { compose } from 'lodash/fp'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
 class Contact extends Component {
   constructor (props) {
@@ -26,15 +29,15 @@ class Contact extends Component {
   keyExtractor = item => item.rawContactId
 
   renderItem = ({ item }) => {
-    console.log(item)
     return <Text style={styles.text}>{item.givenName}</Text>
   }
 
   render () {
+    const { theme } = this.props
     const { fetching, contacts } = this.state
     if (fetching) return <Spinner/>
     return (
-      <View style={styles.container}>
+      <View style={[ styles.container, { backgroundColor: theme.background } ]}>
         <FlatList
           data={contacts}
           renderItem={this.renderItem}
@@ -46,15 +49,18 @@ class Contact extends Component {
   }
 }
 
-export default navigationHoc(Contact)
+export default compose(
+  withStatusBar,
+  withTheme,
+  navigationHoc
+)(Contact)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   },
   list: {
     padding: 20

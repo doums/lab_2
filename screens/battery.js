@@ -3,6 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import BatteryModule from '../BatteryModule'
 import Spinner from '../components/spinner'
 import navigationHoc from '../components/navigationHoc'
+import { compose } from 'lodash/fp'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
 class Battery extends Component {
   constructor (props) {
@@ -27,6 +30,7 @@ class Battery extends Component {
   }
 
   render () {
+    const { theme } = this.props
     const { battery } = this.state
     if (!battery) return <Spinner/>
     let plugged = ''
@@ -35,30 +39,33 @@ class Battery extends Component {
     } else if (battery && battery.usbCharge) {
       plugged = 'usb'
     }
+    const textStyle = [ styles.text, { color: theme.onBackground } ]
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>level: { battery.level }</Text>
-        <Text style={styles.text}>state: { battery.isCharging ? 'charging' : 'discharging' }</Text>
+      <View style={[ styles.container, { backgroundColor: theme.background } ]}>
+        <Text style={textStyle}>level: { battery.level }</Text>
+        <Text style={textStyle}>state: { battery.isCharging ? 'charging' : 'discharging' }</Text>
         {
           battery.isCharging === true && plugged.length > 0 &&
-          <Text style={styles.text}>plugged: { plugged }</Text>
+          <Text style={textStyle}>plugged: { plugged }</Text>
         }
       </View>
     )
   }
 }
 
-export default navigationHoc(Battery)
+export default compose(
+  withStatusBar,
+  withTheme,
+  navigationHoc
+)(Battery)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   },
   text: {
-    color: 'white',
     fontSize: 16,
     margin: 5
   }

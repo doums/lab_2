@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Spinner from '../components/spinner'
 import navigationHoc from '../components/navigationHoc'
+import { compose } from 'lodash/fp'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
 class Geolocation extends Component {
   constructor (props) {
@@ -26,19 +29,25 @@ class Geolocation extends Component {
   }
 
   render () {
+    const { theme } = this.props
     const { coords } = this.state
+    const textStyle = [ styles.text, { color: theme.onBackground } ]
     if (!coords) return <Spinner/>
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>latitude: { coords.latitude }</Text>
-        <Text style={styles.text}>longitude: { coords.longitude }</Text>
-        <Text style={styles.text}>altitude: { coords.altitude }</Text>
+      <View style={[ styles.container, { backgroundColor: theme.background } ]}>
+        <Text style={textStyle}>latitude: { coords.latitude }</Text>
+        <Text style={textStyle}>longitude: { coords.longitude }</Text>
+        <Text style={textStyle}>altitude: { coords.altitude }</Text>
       </View>
     )
   }
 }
 
-export default navigationHoc(Geolocation)
+export default compose(
+  withStatusBar,
+  withTheme,
+  navigationHoc
+)(Geolocation)
 
 const styles = StyleSheet.create({
   container: {

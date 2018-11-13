@@ -3,6 +3,9 @@ import { Platform, StyleSheet, Text, View } from 'react-native'
 import Spinner from '../components/spinner'
 import RNLanguages from 'react-native-languages'
 import navigationHoc from '../components/navigationHoc'
+import { compose } from 'lodash/fp'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
 class Language extends Component {
   constructor (props) {
@@ -38,28 +41,32 @@ class Language extends Component {
   }
 
   render () {
+    const { theme } = this.props
     const { lang, text } = this.state
     if (!lang) return <Spinner/>
+    const textStyle = [ styles.text, { color: theme.onBackground } ]
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>language: { lang }</Text>
-        <Text style={[styles.text, { fontStyle: 'italic' }]}>{ text }</Text>
+      <View style={[ styles.container, { backgroundColor: theme.background } ]}>
+        <Text style={textStyle}>language: { lang }</Text>
+        <Text style={textStyle}>{ text }</Text>
       </View>
     )
   }
 }
 
-export default navigationHoc(Language)
+export default compose(
+  withStatusBar,
+  withTheme,
+  navigationHoc
+)(Language)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   },
   text: {
-    color: 'white',
     fontSize: 16,
     margin: 5
   }

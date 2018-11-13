@@ -4,12 +4,14 @@ import { decorator as rnSensors } from 'react-native-sensors'
 import { compose } from 'lodash/fp'
 import navigationHoc from '../components/navigationHoc'
 import Chart from '../components/chart'
+import withTheme from '../components/withTheme'
+import withStatusBar from '../components/withStatusBar'
 
 const Sensors = props => {
-  const { sensorsFound, Accelerometer } = props
+  const { sensorsFound, Accelerometer, theme } = props
   if (!Accelerometer) {
-    return <View style={styles.container} />
-  }
+    return <View style={[ styles.container, { backgroundColor: theme.background } ]}/>
+    }
   if (!sensorsFound['Accelerometer']) {
     return (
       <View style={styles.container} >
@@ -30,6 +32,8 @@ const Sensors = props => {
 }
 
 export default compose(
+  withStatusBar,
+  withTheme,
   navigationHoc,
   rnSensors({
     Accelerometer: {
