@@ -32,7 +32,7 @@ const DrawerItem = ({ item, activeItem, theme, navigation }) => {
 const DrawerContent = React.memo(props => {
   const { items, theme, activeItem, navigation } = props
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={[ styles.title, { color:theme.onPrimary } ]}>App</Text>
       <FlatList
         data={items}
@@ -52,6 +52,9 @@ const DrawerContent = React.memo(props => {
 export default withTheme(DrawerContent)
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 2
+  },
   itemContainer: {
     flex: 1,
     flexDirection: 'row',
