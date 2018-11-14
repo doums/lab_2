@@ -5,7 +5,6 @@ import Spinner from '../components/spinner'
 import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
-import withStatusBar from '../components/withStatusBar'
 import withActionBar from '../components/withActionBar'
 
 class Contact extends Component {
@@ -52,7 +51,6 @@ class Contact extends Component {
 
 export default compose(
   navigationHoc,
-  withStatusBar,
   withActionBar,
   withTheme,
 )(Contact)

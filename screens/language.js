@@ -5,7 +5,6 @@ import RNLanguages from 'react-native-languages'
 import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
-import withStatusBar from '../components/withStatusBar'
 import withActionBar from '../components/withActionBar'
 
 class Language extends Component {
@@ -57,7 +56,6 @@ class Language extends Component {
 
 export default compose(
   navigationHoc,
-  withStatusBar,
   withActionBar,
   withTheme,
 )(Language)

@@ -5,7 +5,6 @@ import { Vibration } from 'react-native'
 import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
-import withStatusBar from '../components/withStatusBar'
 import withActionBar from '../components/withActionBar'
 
 const AppVibration = ({ theme }) => {
@@ -25,7 +24,6 @@ const AppVibration = ({ theme }) => {
 
 export default compose(
   navigationHoc,
-  withStatusBar,
   withActionBar,
   withTheme,
 )(AppVibration)

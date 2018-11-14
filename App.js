@@ -1,18 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react'
 import ThemeContext, { MaterialTheme } from './constants/themeContext'
-import Navigator from './components/navigator'
+import Permissions from './screens/permissions'
 
 const App = () => (
   <ThemeContext.Provider value={MaterialTheme}>
-    <Navigator />
+    <Permissions />
   </ThemeContext.Provider>
 )
 export default App
