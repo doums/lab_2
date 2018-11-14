@@ -6,6 +6,7 @@ import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withStatusBar from '../components/withStatusBar'
+import withActionBar from '../components/withActionBar'
 
 const AppVibration = ({ theme }) => {
   const vibrate = () => {
@@ -24,6 +25,7 @@ const AppVibration = ({ theme }) => {
 
 export default compose(
   withStatusBar,
+  withActionBar,
   withTheme,
   navigationHoc
 )(AppVibration)

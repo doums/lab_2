@@ -5,6 +5,7 @@ import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withStatusBar from '../components/withStatusBar'
+import withActionBar from '../components/withActionBar'
 
 class Geolocation extends Component {
   constructor (props) {
@@ -45,6 +46,7 @@ class Geolocation extends Component {
 
 export default compose(
   withStatusBar,
+  withActionBar,
   withTheme,
   navigationHoc
 )(Geolocation)

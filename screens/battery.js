@@ -6,6 +6,7 @@ import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withStatusBar from '../components/withStatusBar'
+import withActionBar from '../components/withActionBar'
 
 class Battery extends Component {
   constructor (props) {
@@ -55,6 +56,7 @@ class Battery extends Component {
 
 export default compose(
   withStatusBar,
+  withActionBar,
   withTheme,
   navigationHoc
 )(Battery)

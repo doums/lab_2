@@ -6,6 +6,7 @@ import navigationHoc from '../components/navigationHoc'
 import Chart from '../components/chart'
 import withTheme from '../components/withTheme'
 import withStatusBar from '../components/withStatusBar'
+import withActionBar from '../components/withActionBar'
 
 const Sensors = props => {
   const { sensorsFound, Accelerometer, theme } = props
@@ -33,6 +34,7 @@ const Sensors = props => {
 
 export default compose(
   withStatusBar,
+  withActionBar,
   withTheme,
   navigationHoc,
   rnSensors({

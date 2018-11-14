@@ -4,14 +4,14 @@ import {
   View,
   Text,
   PermissionsAndroid,
-  Platform,
-  ScrollView
+  Platform
 } from 'react-native'
 import Button from '../components/button'
 import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withStatusBar from '../components/withStatusBar'
+import withActionBar from '../components/withActionBar'
 
 class Home extends Component {
   constructor (props) {
@@ -49,9 +49,7 @@ class Home extends Component {
     const { theme } = this.props
     if (ready) {
       return (
-        <ScrollView
-          contentContainerStyle={[ styles.container, { backgroundColor: theme.background } ]}
-        >
+        <View style={[ styles.container, { backgroundColor: theme.background } ]}>
           {
             Platform.OS === 'android' &&
             <Button
@@ -79,7 +77,7 @@ class Home extends Component {
             text='Sensors'
             onPress={() => this.props.navigation.navigate('Sensors')}
           />
-        </ScrollView>
+        </View>
       )
     } else {
       return (
@@ -93,16 +91,17 @@ class Home extends Component {
 
 export default compose(
   withStatusBar,
+  withActionBar,
   withTheme,
   navigationHoc
 )(Home)
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    paddingTop: 10,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+
   },
   text: {
     fontSize: 16,
