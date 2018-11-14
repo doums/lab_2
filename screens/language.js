@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, View } from 'react-native'
 import Spinner from '../components/spinner'
 import RNLanguages from 'react-native-languages'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -55,7 +54,6 @@ class Language extends Component {
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
 )(Language)
@@ -68,6 +66,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    margin: 5
+    margin: 5,
+    fontFamily: 'Lekton-Regular'
   }
 })

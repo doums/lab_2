@@ -2,7 +2,6 @@ import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {decorator as rnSensors} from 'react-native-sensors'
 import {compose} from 'lodash/fp'
-import navigationHoc from '../components/navigationHoc'
 import Chart from '../components/chart'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -32,7 +31,6 @@ const Sensors = props => {
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
   rnSensors({
@@ -48,8 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#29434e'
+    alignItems: 'center'
   },
   text: {
     color: 'white',

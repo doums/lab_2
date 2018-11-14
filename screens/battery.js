@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import BatteryModule from '../BatteryModule'
 import Spinner from '../components/spinner'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -54,7 +53,6 @@ class Battery extends Component {
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
 )(Battery)
@@ -67,6 +65,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    margin: 5
+    margin: 5,
+    fontFamily: 'Lekton-Regular'
   }
 })

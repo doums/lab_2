@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import Button from '../components/button'
 import { Vibration } from 'react-native'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -16,14 +15,13 @@ const AppVibration = ({ theme }) => {
     <View style={[ styles.container, { backgroundColor: theme.background } ]}>
       <Button
         onPress={vibrate}
-        text='Press me!'
+        text='PRESS ME!'
       />
     </View>
   )
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
 )(AppVibration)

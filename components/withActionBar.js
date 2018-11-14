@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-    minWidth: 500
+    minWidth: 500,
+    fontFamily: 'Lekton-Bold'
   },
   scrollViewContainer: {
     flexGrow: 1,

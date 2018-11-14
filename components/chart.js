@@ -33,7 +33,7 @@ class Chart extends PureComponent {
             labels={['x', 'y', 'z']}
             style={{
               data: { fill: theme.primaryDark, stroke: theme.primary, strokeWidth: 6 },
-              labels: { fill: 'white', fontSize: '16' } }}
+              labels: { fill: 'white', fontSize: '16', fontFamily: 'Lekton-Regular' } }}
           />
         </VictoryChart>
       </View>

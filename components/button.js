@@ -8,7 +8,9 @@ const Button = props => (
     onPress={() => props.onPress()}
     activeOpacity={0.5}
   >
-    <Text style={[ styles.text, { color: props.theme.onPrimary } ]}>{props.text}</Text>
+    <Text
+      style={[ styles.text, { color: props.theme.onPrimary } ]}
+    >{props.text}</Text>
   </TouchableOpacity>
 )
 export default withTheme(Button)
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
     minWidth: 200
   },
   text: {
-    fontSize: 16
+    fontSize: 14,
+    fontFamily: 'Montserrat-Bold'
   }
 })

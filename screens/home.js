@@ -5,7 +5,6 @@ import {
   Platform
 } from 'react-native'
 import Button from '../components/button'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -15,35 +14,34 @@ const Home = ({ theme, navigation: { navigate } }) => (
     {
       Platform.OS === 'android' &&
       <Button
-        text='Battery'
+        text='BATTERY'
         onPress={() => navigate('Battery')}
       />
     }
     <Button
-      text='Geolocation'
+      text='LOCATION'
       onPress={() => navigate('Geolocation')}
     />
     <Button
-      text='Contacts'
+      text='CONTACTS'
       onPress={() => navigate('Contact')}
     />
     <Button
-      text='Language'
+      text='LANG'
       onPress={() => navigate('Language')}
     />
     <Button
-      text='Vibration'
+      text='VIBRATION'
       onPress={() => navigate('Vibration')}
     />
     <Button
-      text='Sensors'
+      text='SENSORS'
       onPress={() => navigate('Sensors')}
     />
   </View>
 )
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme
 )(Home)

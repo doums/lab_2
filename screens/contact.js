@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, FlatList} from 'react-native'
 import Contacts from 'react-native-contacts';
 import Spinner from '../components/spinner'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -29,7 +28,8 @@ class Contact extends Component {
   keyExtractor = item => item.rawContactId
 
   renderItem = ({ item }) => {
-    return <Text style={styles.text}>{item.givenName}</Text>
+    const { theme } = this.props
+    return <Text style={[ styles.text, { backgroundColor: theme.background, color: theme.onBackground } ]}>{item.givenName}</Text>
   }
 
   render () {
@@ -50,7 +50,6 @@ class Contact extends Component {
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
 )(Contact)
@@ -66,7 +65,8 @@ const styles = StyleSheet.create({
     padding: 20
   },
   text: {
-    color: 'white',
     fontSize: 20,
+    fontFamily: 'Lekton-Regular',
+    opacity: 50
   }
 })

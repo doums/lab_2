@@ -75,11 +75,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'flex-start',
+    paddingHorizontal: 20
   },
   text: {
     fontSize: 14,
     paddingHorizontal: 10,
-    fontStyle: 'italic'
+    fontFamily: 'Lekton-Regular'
   }
 })

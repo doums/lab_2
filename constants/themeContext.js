@@ -11,7 +11,7 @@ export const MaterialTheme = {
   surface: '#212121',
   onPrimary: '#000000',
   onSecondary: '#000000',
-  onBackground: '#ffffff',
+  onBackground: '#878787',
   onSurface: '#ffffff'
 }
 

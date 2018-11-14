@@ -7,7 +7,7 @@ export default function findScreenTitle (routeName) {
     case 'Geolocation':
       return 'Geolocation'
     case 'Contact':
-      return 'Contact'
+      return 'Contacts'
     case 'Language':
       return 'Language'
     case 'Vibration':

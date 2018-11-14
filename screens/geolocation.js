@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Spinner from '../components/spinner'
-import navigationHoc from '../components/navigationHoc'
 import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
@@ -44,7 +43,6 @@ class Geolocation extends Component {
 }
 
 export default compose(
-  navigationHoc,
   withActionBar,
   withTheme,
 )(Geolocation)
@@ -57,8 +55,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#29434e'
   },
   text: {
-    color: 'white',
     fontSize: 16,
-    margin: 5
+    margin: 5,
+    fontFamily: 'Lekton-Regular'
   }
 })
