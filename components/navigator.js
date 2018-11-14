@@ -40,7 +40,10 @@ const Navigator = ({ theme }) => {
     contentComponent: ContentComponent,
     contentOptions: {
       activeTintColor: theme.secondaryLight,
-      activeBackgroundColor: theme.primaryDark
+      activeBackgroundColor: theme.primaryDark,
+      labelStyle: {
+        minWidth: 500
+      }
     }
   })
   return <DrawerNavigator />

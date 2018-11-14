@@ -17,7 +17,7 @@ const withActionBar = WrappedComponent => {
               onPress={() => props.navigation.openDrawer()}
             />
           </View>
-          <Text style={styles.title}>{ findScreenTitle(props.navigation.state.routeName) }</Text>
+          <Text style={[ styles.title, { color: props.theme.onPrimary } ]}>{ findScreenTitle(props.navigation.state.routeName) }</Text>
         </View>
       </View>
       <ScrollView
@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    minWidth: 500
   },
   scrollViewContainer: {
     flexGrow: 1,
-    paddingTop: 10,
     justifyContent: 'center',
     alignItems: 'center'
   }
