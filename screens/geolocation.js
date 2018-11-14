@@ -45,10 +45,10 @@ class Geolocation extends Component {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc
 )(Geolocation)
 
 const styles = StyleSheet.create({

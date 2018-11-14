@@ -24,10 +24,10 @@ const AppVibration = ({ theme }) => {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc
 )(AppVibration)
 
 const styles = StyleSheet.create({

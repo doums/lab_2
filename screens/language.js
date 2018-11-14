@@ -56,10 +56,10 @@ class Language extends Component {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc
 )(Language)
 
 const styles = StyleSheet.create({

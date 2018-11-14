@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeContext } from '../App'
+import ThemeContext from '../constants/themeContext'
 
 const withTheme = WrappedComponent => {
   return props => (

@@ -33,10 +33,10 @@ const Sensors = props => {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc,
   rnSensors({
     Accelerometer: {
       updateInterval: 300

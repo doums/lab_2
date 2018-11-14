@@ -51,10 +51,10 @@ class Contact extends Component {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc
 )(Contact)
 
 const styles = StyleSheet.create({

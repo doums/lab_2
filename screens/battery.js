@@ -55,10 +55,10 @@ class Battery extends Component {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
   withTheme,
-  navigationHoc
 )(Battery)
 
 const styles = StyleSheet.create({

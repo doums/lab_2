@@ -90,10 +90,10 @@ class Home extends Component {
 }
 
 export default compose(
+  navigationHoc,
   withStatusBar,
   withActionBar,
-  withTheme,
-  navigationHoc
+  withTheme
 )(Home)
 
 const styles = StyleSheet.create({
