@@ -123,10 +123,14 @@ class Color extends Component {
     )
   }
 
+  removeListener = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+  }
+
   render () {
     const { theme } = this.props
     const { colors, adding } = this.state
-    if (adding) return <AddColor addColor={this.onAddColor} />
+    if (adding) return <AddColor addColor={this.onAddColor} onUnmount={this.removeListener} />
     return (
       <View style={[ styles.container, { backgroundColor: theme.background } ]}>
         <FlatList

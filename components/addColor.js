@@ -29,6 +29,10 @@ class AddColor extends Component {
     })
   }
 
+  componentWillUnmount() {
+    this.props.onUnmount()
+  }
+
   render () {
     const { theme } = this.props
     const { color, error } = this.state
