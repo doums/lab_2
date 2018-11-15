@@ -12,7 +12,9 @@ export const MaterialTheme = {
   onPrimary: '#000000',
   onSecondary: '#000000',
   onBackground: '#878787',
-  onSurface: '#ffffff'
+  onSurface: '#ffffff',
+  error: '#b00020',
+  onError: '#ffffff'
 }
 
 const ThemeContext = React.createContext(MaterialTheme)

@@ -8,8 +8,10 @@ import Contact from '../screens/contact'
 import Language from '../screens/language'
 import AppVibration from '../screens/appVibration'
 import Sensors from '../screens/sensors'
+import ButtonExample from '../screens/buttonExample'
 import withTheme from './withTheme'
 import DrawerContent from './drawerContent'
+import Color from '../screens/color'
 
 const Navigator = ({ theme }) => {
   const ContentComponent = props => {
@@ -34,10 +36,12 @@ const Navigator = ({ theme }) => {
     Contact: Contact,
     Language: Language,
     Vibration: AppVibration,
-    Sensors: Sensors
+    Sensors: Sensors,
+    ButtonExample: ButtonExample,
+    Color: Color
   }, {
     initialRouteName: 'Home',
-    contentComponent: ContentComponent,
+    contentComponent: ContentComponent
   })
   return <DrawerNavigator />
 }

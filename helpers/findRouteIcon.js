@@ -14,5 +14,9 @@ export default function findRouteIcon (routeName) {
       return 'vibration'
     case 'Sensors':
       return 'gps-fixed'
+    case 'ButtonExample':
+      return 'add-circle'
+    case 'Color':
+      return 'color-lens'
   }
 }

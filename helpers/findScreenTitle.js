@@ -14,5 +14,11 @@ export default function findScreenTitle (routeName) {
       return 'Vibration'
     case 'Sensors':
       return 'Sensors'
+    case 'ButtonExample':
+      return 'Button example'
+    case 'Color':
+      return 'Color'
+    case 'AddColor':
+      return 'Add a color'
   }
 }

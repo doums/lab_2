@@ -7,6 +7,7 @@ const Button = props => (
     style={[ styles.button, { backgroundColor: props.theme.primary } ]}
     onPress={() => props.onPress()}
     activeOpacity={0.5}
+    disabled={props.disabled}
   >
     <Text
       style={[ styles.text, { color: props.theme.onPrimary } ]}
@@ -24,6 +25,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontFamily: 'Montserrat-Bold'
+    fontFamily: 'Montserrat-Medium'
   }
 })

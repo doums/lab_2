@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontFamily: 'Lekton-Regular',
-    opacity: 50
+    fontFamily: 'Lekton-Regular'
   }
 })

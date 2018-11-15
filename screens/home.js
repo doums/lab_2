@@ -38,6 +38,14 @@ const Home = ({ theme, navigation: { navigate } }) => (
       text='SENSORS'
       onPress={() => navigate('Sensors')}
     />
+    <Button
+      text='BUTTON EX'
+      onPress={() => navigate('ButtonExample')}
+    />
+    <Button
+      text='COLOR'
+      onPress={() => navigate('Color')}
+    />
   </View>
 )
 
@@ -50,8 +58,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-
+    alignItems: 'center',
+    marginTop: 10
   },
   text: {
     fontSize: 16,
