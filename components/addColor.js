@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, TextInput, View} from 'react-native'
-import { compose } from 'lodash/fp'
-import withTheme from '../components/withTheme'
-import Button from '../components/button'
+import withTheme from './withTheme'
+import Button from './button'
 import colors from '../constants/colors'
 
 class AddColor extends Component {
@@ -57,9 +56,7 @@ class AddColor extends Component {
   }
 }
 
-export default compose(
-  withTheme,
-)(AddColor)
+export default withTheme(AddColor)
 
 const styles = StyleSheet.create({
   container: {

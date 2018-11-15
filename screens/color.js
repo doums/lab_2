@@ -4,7 +4,7 @@ import { compose } from 'lodash/fp'
 import withTheme from '../components/withTheme'
 import withActionBar from '../components/withActionBar'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import AddColor from './addColor'
+import AddColor from '../components/addColor'
 
 class Color extends Component {
   constructor (props) {

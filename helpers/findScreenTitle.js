@@ -18,7 +18,5 @@ export default function findScreenTitle (routeName) {
       return 'Button example'
     case 'Color':
       return 'Color'
-    case 'AddColor':
-      return 'Add a color'
   }
 }
