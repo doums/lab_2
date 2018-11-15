@@ -18,16 +18,12 @@ class Color extends Component {
       key: 0,
       adding: false
     }
-    this.didFocusSubscription = props.navigation.addListener('didFocus', () =>
-      BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
-    )
+    this.didFocusSubscription = props.navigation.addListener('didFocus', this.addListener)
   }
 
   componentDidMount() {
     this.setActionItems()
-    this.willBlurSubscription = this.props.navigation.addListener('willBlur', () =>
-      BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
-    )
+    this.willBlurSubscription = this.props.navigation.addListener('willBlur', this.removeListener)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -59,7 +55,16 @@ class Color extends Component {
     }
   }
 
+  removeListener = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+  }
+
+  addListener = () => {
+    BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+  }
+
   addColor = () => {
+    this.addListener()
     this.setState({ adding: true })
   }
 
@@ -121,10 +126,6 @@ class Color extends Component {
         </View>
       </View>
     )
-  }
-
-  removeListener = () => {
-    BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
   }
 
   render () {
