@@ -46,6 +46,10 @@ const Home = ({ theme, navigation: { navigate } }) => (
       text='COLOR'
       onPress={() => navigate('Color')}
     />
+    <Button
+      text='DATE&TIME'
+      onPress={() => navigate('Time')}
+    />
   </View>
 )
 

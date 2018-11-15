@@ -18,5 +18,7 @@ export default function findScreenTitle (routeName) {
       return 'Button example'
     case 'Color':
       return 'Color'
+    case 'Time':
+      return 'Date & Time'
   }
 }

@@ -18,5 +18,7 @@ export default function findRouteIcon (routeName) {
       return 'add-circle'
     case 'Color':
       return 'color-lens'
+    case 'Time':
+      return 'access-time'
   }
 }

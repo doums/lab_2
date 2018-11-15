@@ -12,6 +12,7 @@ import ButtonExample from '../screens/buttonExample'
 import withTheme from './withTheme'
 import DrawerContent from './drawerContent'
 import Color from '../screens/color'
+import Time from '../screens/time'
 
 const Navigator = ({ theme }) => {
   const ContentComponent = props => {
@@ -38,7 +39,8 @@ const Navigator = ({ theme }) => {
     Vibration: AppVibration,
     Sensors: Sensors,
     ButtonExample: ButtonExample,
-    Color: Color
+    Color: Color,
+    Time: Time
   }, {
     initialRouteName: 'Home',
     contentComponent: ContentComponent
